@@ -5,8 +5,7 @@
 \alias{nearest_datasets.default}
 \alias{nearest_datasets.character}
 \alias{nearest_datasets.data.frame}
-\title{------------------------------------------------------------------------------------
-Select nearest datasets given input `x`.}
+\title{Select nearest datasets given input `x`.}
 \usage{
 nearest_datasets(x, ...)
 
@@ -40,7 +39,7 @@ or data.frame of n_samples x n_features(or n_features+1 with a target column)}
 
 \item{dimensions}{Character vector specifying dataset characteristics to include in similarity calculation.
 Dimensions must correspond to numeric columns of
-[all_summary_stats.tsv](https://github.com/EpistasisLab/penn-ml-benchmarks/blob/master/pmlb/all_summary_stats.tsv).
+[all_summary_stats.tsv](https://github.com/EpistasisLab/pmlb/blob/master/pmlb/all_summary_stats.tsv).
 If 'all' (default), uses all numeric columns.}
 
 \item{target_name}{Character string specifying column of target/dependent variable.}

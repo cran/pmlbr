@@ -1,4 +1,3 @@
-#' ------------------------------------------------------------------------------------
 #' Select nearest datasets given input `x`.
 #'
 #' If `x` is a data.frame object, computes dataset characteristics.
@@ -11,7 +10,7 @@
 #' @param n_neighbors Integer. The number of dataset names to return as neighbors.
 #' @param dimensions Character vector specifying dataset characteristics to include in similarity calculation.
 #' Dimensions must correspond to numeric columns of
-#' [all_summary_stats.tsv](https://github.com/EpistasisLab/penn-ml-benchmarks/blob/master/pmlb/all_summary_stats.tsv).
+#' [all_summary_stats.tsv](https://github.com/EpistasisLab/pmlb/blob/master/pmlb/all_summary_stats.tsv).
 #' If 'all' (default), uses all numeric columns.
 #' @param task Character string specifying classification or regression for summary stat generation.
 #' @param target_name Character string specifying column of target/dependent variable.
@@ -128,7 +127,6 @@ nearest_datasets.data.frame <- function(
   summary_task[nearest_indices$nn.index, 'dataset']
 }
 
-#' ------------------------------------------------------------------------------------
 #' Computes imbalance value for a given dataset.
 #'
 #' @param target_col Factor or character vector of target column.
@@ -156,7 +154,6 @@ compute_imbalance <- function(target_col){
   list(num_classes = num_classes, imbalance = imb/worst_case)
 }
 
-#' ------------------------------------------------------------------------------------
 #' Get type/class of given vector.
 #'
 #' @param x Input vector.
@@ -168,9 +165,9 @@ compute_imbalance <- function(target_col){
 get_type <- function(x, include_binary = FALSE){
   x <- stats::na.omit(x)
 
-  if (class(x) == 'numeric'){
+  if (inherits(x, 'numeric')){
     return('continuous')
-  } else if (class(x) %in% c('integer', 'factor')){
+  } else if (inherits(x, 'integer') || inherits(x, 'factor')){
     if (include_binary){
       if (length(unique(x)) == 2) return('binary')}
     return('categorical')
